@@ -3,7 +3,16 @@ body {
 }
 
 .lighter-section {
-    background-color: rgb(36, 39, 65);
+    background-color: #242741;
+}
+
+.aboutpaddings {
+    background-color: #47536F;
+    text-align:center;
+}
+
+.textalignment {
+    text-align:center;
 }
 
 
