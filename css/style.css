@@ -1,18 +1,37 @@
+html {
+    overflow-x: hidden;
+}
+
 body {
     background-color: #0C0D16ff;
 }
 
 .lighter-section {
-    background-color: rgb(36, 39, 65);
+    background-color: #242741;
 }
 
+.even-lighter-section {
+    background-color: #47536F;
+}
+
+.darker-section {
+    background-color: #0C0D16ff;
+}
 
 .full-screen-container {
     min-height: 100vh;
 }
 
+.header-container {
+    min-height: 25vh;
+}
+
 .centered {
     text-align: center;
+}
+
+.align-left {
+    text-align: left;
 }
 
 .hex_backing {
@@ -26,6 +45,20 @@ body {
 }
 
 .px-10 {
-  padding-left: 5rem !important;
-  padding-right: 5rem !important;
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+}
+
+.header-description {
+    max-width: 1200px;
+}
+
+.centered-desktop {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+  .centered-desktop {
+    text-align: left; 
+  }
 }
