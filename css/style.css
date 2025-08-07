@@ -29,3 +29,7 @@ body {
   padding-left: 5rem !important;
   padding-right: 5rem !important;
 }
+
+.biggerheightinputbox {
+    height:100px;
+}

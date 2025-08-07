@@ -46,19 +46,26 @@
             
         </div>
     <div class="container-fluid border-0 shadow-lg d-flex flex-column align-items-center justify-content-center centered py-5 px-10 text-white lighter-section">
-        <h2><b>Contact Us!</b></h2>
-        <form>
-            <div class="form-group row">
-            <label for="name">Your Name:</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Name">
-            <small class="supportingtext">Name is required!</small>
-            </div>
-            <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-        </form>
+        <h1>Contact Us!</h1>
+            <p>Contact us by filling in the form below!</p>
+            <div class="container border-0 align-left text-white">
+                <div class="form-group my-2">
+                    <label for="fullname">Enter your full name:</label>
+                    <input type="text" class="form-control" id="fullname" aria-describedby="fullname" placeholder="Your Name">
+                </div>
+                <div class="form-group my-2">
+                    <label for="phone">Enter your Phone Number:</label>
+                    <input type="number" length="8" class="form-control" id="phone" aria-describedby="phone" placeholder="Your Phone Number">
+                </div>
+                <div class="form-group my-2">
+                    <label for="comments">Enter Queries or Questions Here:</label>
+                    <textarea id="comments" class="form-control" rows="5" placeholder="Input Questions&Queries Here"></textarea>
+                </div>
+                    <input class="btn btn-primary" type="reset" value="Reset">
+                    <button type="submit" class="btn btn-primary my-2" onclick="window.location.href='formsubmissionsucess.html'">Submit</button>
+                </div>
     </div>
+    
         <footer class="container-fluid d-flex justify-content-center align-items-center mt-auto py-3 bg-dark text-white">
             <span>&copy; 2025 EnCheng Technologies. All rights reserved.</span>
         </footer>
