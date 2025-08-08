@@ -1,18 +1,38 @@
+html {
+    overflow-x: hidden;
+}
+
 body {
     background-color: #0C0D16ff;
 }
 
 .lighter-section {
-    background-color: rgb(36, 39, 65);
+    background-color: #242741;
+
 }
 
+.even-lighter-section {
+    background-color: #47536F;
+}
+
+.darker-section {
+    background-color: #0C0D16ff;
+}
 
 .full-screen-container {
     min-height: 100vh;
 }
 
+.header-container {
+    min-height: 25vh;
+}
+
 .centered {
     text-align: center;
+}
+
+.align-left {
+    text-align: left;
 }
 
 .hex_backing {
@@ -26,10 +46,62 @@ body {
 }
 
 .px-10 {
-  padding-left: 5rem !important;
-  padding-right: 5rem !important;
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
 }
 
+.header-description {
+    max-width: 1200px;
+}
+
+.centered-desktop {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+  .centered-desktop {
+    text-align: left; 
+  }
+}
+
+
+.list {
+    list-style-position: inside;
+
+.centered-desktop {
+    text-align: center;
+}
+
+.aboutimage {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/img/hex_backing.jpg');
+}
+
+@media (max-width: 767px) {
+  .centered-desktop {
+    text-align: left; 
+  }
+}
+
+/* Custom CSS for a responsive box with a 1:1 aspect ratio */
+.image-box-responsive {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; 
+  height: 0;
+  overflow: hidden;
+  border: 1px solid #dee2e6;
+}
+
+/* Ensure the image fills the container */
+.image-box-responsive img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+}
 .biggerheightinputbox {
     height:100px;
 }
