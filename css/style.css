@@ -67,7 +67,7 @@ body {
 
 .list {
     list-style-position: inside;
-
+}
 .centered-desktop {
     text-align: center;
 }
@@ -114,6 +114,9 @@ body {
     
     
 }
+
+
+
 
 .bigbutton {
     height:65px;
