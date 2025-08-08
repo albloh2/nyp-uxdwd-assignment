@@ -1,0 +1,18 @@
+.my-containerpic1 {
+  background-image: url("/assets/img/pic1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height:250px;
+  min-width:250px;
+  background-size:contain;
+}
+.my-containerpic2 {
+  background-image: url("/assets/img/pic2.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height:250px;
+  min-width:250px;
+  background-size:contain;
+}
