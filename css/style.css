@@ -8,6 +8,7 @@ body {
 
 .lighter-section {
     background-color: #242741;
+
 }
 
 .even-lighter-section {
@@ -51,6 +52,16 @@ body {
 
 .header-description {
     max-width: 1200px;
+}
+
+.centered-desktop {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+  .centered-desktop {
+    text-align: left; 
+  }
 }
 
 .centered-desktop {
