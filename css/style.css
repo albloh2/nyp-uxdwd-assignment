@@ -118,3 +118,7 @@ body {
     align-items: center;
     width:150px;
 }
+
+.image {
+    object-fit: cover;
+}
