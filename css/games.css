@@ -5,3 +5,11 @@
     background-size: cover;
     max-height: 200px;
 }
+
+.cs2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)), url('/assets/img/Cs2-banner.webp');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    max-height: 200px;
+}
