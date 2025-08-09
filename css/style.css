@@ -147,5 +147,8 @@ body {
 }
 
 .mlbbbanner{
-    background-image: url("/assets/img/mlbb.png");
+    background-image: url("/assets/img/mlbb.jpg");
+    background-position: center;
+    background-size: cover;
+    max-height:200px;
 }
