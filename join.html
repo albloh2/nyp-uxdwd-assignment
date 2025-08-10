@@ -123,16 +123,16 @@
                 <div class="form-group my-2">
                     <label for="game">Preferred Game</label>
                     <select class="form-select bg-dark text-white" aria-label="preferred game" id="game">
-                        <option selected value="1">Valorant</option>
-                        <option value="2">Counter-Strike 2</option>
-                        <option value="3">TETR.IO</option>
-                        <option value="4">Mobile Legends: Bang Bang (Coming Soon)</option>
-                        <option value="5">EA Sports FC 2025 (Coming Soon)</option>
-                        <option value="6">Rocket League (Coming Soon)</option>
+                        <option selected value="Valorant">Valorant</option>
+                        <option value="Counter-Strike 2">Counter-Strike 2</option>
+                        <option value="TETR.IO">TETR.IO</option>
+                        <option value="Mobile Legends: Bang Bang">Mobile Legends: Bang Bang (Coming Soon)</option>
+                        <option value="EA Sports FC 2025">EA Sports FC 2025 (Coming Soon)</option>
+                        <option value="Rocket League">Rocket League (Coming Soon)</option>
                     </select>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary my-2" onclick="alert('TODO: Add shit here')">Submit</button>
+            <button type="button" class="btn btn-primary my-2" onclick="handle_validation_all()">Submit</button>
         </div>
         <div class="container-fluid border-0 shadow-lg d-flex flex-column align-items-center justify-content-center centered py-5 px-10 text-white">
             <h1>Any Questions?</h1>
@@ -141,8 +141,81 @@
             <button class="btn btn-primary mt-3" onclick="document.location.href='contact.html'">Contact Us!</button>
         </div>
         <footer class="container-fluid d-flex justify-content-center align-items-center mt-auto py-3 bg-dark text-white">
-            <p><span>&copy; 2025 Albloh2 Technologies. All rights reserved.</span> | <a href="credits.html" class="text-white">Credits</p>
+            <p><span>&copy; 2025 Albloh2 Technologies. All rights reserved.</span> | <a href="credits.html" class="text-white">Credits</a></p>
         </footer>
+        <div class="modal" tabindex="-1" id="error" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Error</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please enusre the following fields are inputted correctly.</p>
+                        <ul id="errorlist">
+                            
+                        </ul>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" id="confirm" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Confirm Submission</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please enusre the following details are correct.</p>
+                        <ul>
+                           <li id="cfm-fullname"></li>
+                           <li id="cfm-admin_no"></li>
+                           <li id="cfm-email"></li>
+                           <li id="cfm-phone"></li>
+                           <li id="cfm-game"></li> 
+                        </ul>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Let Me Make Changes</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="submit_application()">Submit Application</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" id="submit_success" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Success</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your application is recorded. We will review and look out for our Info Session Email that will be sent shortly.</p>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="document.location.reload()">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" id="submit_error" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Error</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>You have already submitted an application.</p>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="document.location.reload()">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
         <script>
