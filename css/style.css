@@ -1,9 +1,13 @@
 html {
     overflow-x: hidden;
+    /* overflow-y: hidden; */
 }
 
 body {
     background-color: #0C0D16ff;
+    padding-top: 56px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .lighter-section {
@@ -82,7 +86,6 @@ body {
   }
 }
 
-/* Custom CSS for a responsive box with a 1:1 aspect ratio */
 .image-box-responsive {
   position: relative;
   width: 100%;
@@ -92,7 +95,6 @@ body {
   border: 1px solid #dee2e6;
 }
 
-/* Ensure the image fills the container */
 .image-box-responsive img {
   position: absolute;
   top: 0;
@@ -119,4 +121,8 @@ body {
     justify-content: center;
     align-items: center;
     width:150px;
+}
+
+.image {
+    object-fit: cover;
 }
