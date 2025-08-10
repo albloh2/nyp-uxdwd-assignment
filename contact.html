@@ -37,8 +37,6 @@
                     </li>
                     </ul>
                 </div>
-
-
             </div>
         </nav>
         <div class="container-fluid header-container border-0 shadow-lg d-flex flex-column align-items-center justify-content-center centered py-5 px-10 hex_backing text-white">
@@ -51,22 +49,19 @@
             <p>Contact us by filling in the form below!</p>
             <div class="container border-0 align-left text-white">
                 <div class="form-group my-2">
-                    <label for="fullname">Enter your full name:</label>
-                    <input type="text" class="form-control" id="fullname" aria-describedby="fullname" placeholder="Your Name">
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" class="form-control bg-dark text-white" id="fullname" aria-describedby="fullname" placeholder="Your Name">
                 </div>
                 <div class="form-group my-2">
-                    <label for="phone">Enter your Phone Number:</label>
-                    <input type="number" length="8" class="form-control" id="phone" aria-describedby="phone" placeholder="Your Phone Number">
+                    <label for="email">Email Address:</label>
+                    <input type="email" class="form-control bg-dark text-white" id="email" aria-describedby="email" placeholder="Your Email Address">
                 </div>
                 <div class="form-group my-2">
-                    <label for="comments">Enter Queries or Questions Here:</label>
-                    <textarea id="comments" class="form-control" rows="5" placeholder="Input Questions&Queries Here"></textarea>
+                    <label for="comments">Message:</label>
+                    <textarea id="comments" class="form-control bg-dark text-white" rows="5" placeholder="Input Questions & Queries Here (max 1000 characters)"></textarea>
                 </div>
-                <div class="row  d-flex flex-column align-items-center justify-content-center centered">
-                    <div col="8">
-                    <input type="reset" class="btn btn-danger my-2"> 
-                    <button type="submit" class="btn btn-primary my-2 " onclick="window.location.href='sucessformsubmission.html'">Submit</button>
-                    </div>
+                <div class="d-flex flex-column align-items-center justify-content-center centered">
+                    <button type="submit" class="btn btn-primary my-2 " onclick="handle_validation_all()">Submit</button>
                 </div>
             </div>
     </div>
@@ -80,15 +75,71 @@
                 <path d="M4 4a3 3 0 0 0-3 3v6h6V7a3 3 0 0 0-3-3m0-1h8a4 4 0 0 1 4 4v6a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a4 4 0 0 1 4-4m2.646 1A4 4 0 0 1 8 7v6h7V7a3 3 0 0 0-3-3z"/>
                 <path d="M11.793 8.5H9v-1h5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.354-.146zM5 7c0 .552-.448 0-1 0s-1 .552-1 0a1 1 0 0 1 2 0"/>
                 </svg><a href="mailto:nypesports@gmail.com">Email Us!</a>
-                
         </div>
         <footer class="container-fluid d-flex justify-content-center align-items-center mt-auto py-3 bg-dark text-white">
-            <p><span>&copy; 2025 Albloh2 Technologies. All rights reserved.</span> | <a href="credits.html" class="text-white">Credits</p>
+            <p><span>&copy; 2025 Albloh2 Technologies. All rights reserved.</span> | <a href="credits.html" class="text-white">Credits</a></p>
         </footer>
+        <div class="modal" tabindex="-1" id="error" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Error</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please enusre the following fields are inputted correctly.</p>
+                        <ul id="errorlist">
+                            
+                        </ul>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" id="confirm" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Confirm Submission</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please enusre the following details are correct.</p>
+                        <ul>
+                           <li id="cfm-fullname"></li>
+                           <li id="cfm-email"></li>
+                           <li id="cfm-message"></li> 
+                        </ul>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Let Me Make Changes</button>
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="submit_application()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" tabindex="-1" id="submit_success" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content bg-dark text-white">
+                    <div class="modal-header border-0">
+                        <h5 class="modal-title">Success</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Your message is recorded. We will review and respond to you soon.</p>
+                    </div>
+                    <div class="modal-footer border-0">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="document.location.reload()">Okay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
         </script>
+        <script src="js/contact.js"></script>
     </body>
 </html>
