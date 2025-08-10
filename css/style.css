@@ -107,6 +107,29 @@ body {
   object-fit: cover;
 
 }
+.biggerheightinputbox {
+    height:100px;
+}
+
+.smallerbutton {
+    display: flex;           
+    justify-content: center;
+    align-items: center;
+    height:65px;
+    
+    
+}
+
+
+
+
+.bigbutton {
+    height:65px;
+    display: flex;           
+    justify-content: center;
+    align-items: center;
+    width:150px;
+}
 
 .iframevideocontainer {
   position: relative;
