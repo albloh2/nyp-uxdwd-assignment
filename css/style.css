@@ -126,3 +126,11 @@ body {
 .image {
     object-fit: cover;
 }
+
+.hover-point {
+    cursor: auto;
+}
+
+.hover-point :hover {
+    cursor: pointer;
+}
