@@ -126,3 +126,8 @@ body {
 .image {
     object-fit: cover;
 }
+
+.form-control::placeholder {
+  color: grey; /* Or any other light color, like #e9ecef */
+  opacity: 1; /* This is important for some browsers (like Firefox) to ensure full opacity */
+}
