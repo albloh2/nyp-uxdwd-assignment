@@ -8,7 +8,7 @@
 		<link href="css/style.css" rel="stylesheet">
 	</head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark translucent sticky-top" aria-label="NYP E-Sports Navigation Bar">
+        <nav class="navbar navbar-expand-md navbar-dark translucent fixed-top" aria-label="NYP E-Sports Navigation Bar">
             <div class="container-md">
                 <a class="navbar-brand " href="#"><img src="assets/svg/icon.svg"> NYP E-Sports</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcontent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,10 +23,10 @@
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Games</a>
+                        <a class="nav-link" href="games.html">Games</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Events</a>
+                        <a class="nav-link" href="events.html">Events</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="join.html">Join Us</a>
@@ -54,7 +54,7 @@
             <br>
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
                 <div class="container py-5 d-flex justify-content-center">
-                    <div class="card shadow-lg rounded-4 overflow-hidden lighter-section text-white">
+                    <div class="card shadow-lg rounded-4 overflow-hidden lighter-section text-white" onclick="document.location.href='valorant.html'">
                         <img src="assets/img/valorant.jpg" class="card-img-top" alt="Placeholder image for the card">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title fw-bold">Valorant</h5>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="container py-5 d-flex justify-content-center">
-                    <div class="card shadow-lg rounded-4 overflow-hidden lighter-section text-white">
+                    <div class="card shadow-lg rounded-4 overflow-hidden lighter-section text-white" onclick="document.location.href='cs2.html'">
                         <img src="assets/img/Cs2-banner.webp" class="card-img-top" alt="Placeholder image for the card">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title fw-bold">Counter-Strike 2</h5>
@@ -78,7 +78,7 @@
                     </div>
                 </div>
                 <div class="container py-5 d-flex justify-content-center">
-                    <div class="card shadow-lg rounded-4 overflow-hidden lighter-section text-white">
+                    <div class="card shadow-lg rounded-4 overflow-hidden lighter-section text-white" onclick="document.location.href='tetrio.html'">
                         <img src="assets/img/tetrio-coverart.png" class="card-img-top" alt="Placeholder image for the card">
                         <div class="card-body d-flex flex-column align-items-center justify-content-center">
                             <h5 class="card-title fw-bold">TETR.IO</h5>
@@ -95,7 +95,7 @@
             <h1>Ready to Join the Team?</h1>
             <br>
             <p>Embark on your esports journey with us. No prior experience needed!</p>
-            <button class="btn btn-primary mt-3">Join Us Now!</button>
+            <button class="btn btn-primary mt-3" onclick="document.location.href='join.html'">Join Us Now!</button>
         </div>
     <footer class="container-fluid d-flex justify-content-center align-items-center mt-auto py-3 text-white">
         <p><span>&copy; 2025 Albloh2 Technologies. All rights reserved.</span> | <a href="credits.html" class="text-white">Credits</p>   

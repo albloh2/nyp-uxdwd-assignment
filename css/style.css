@@ -1,9 +1,13 @@
 html {
     overflow-x: hidden;
+    /* overflow-y: hidden; */
 }
 
 body {
     background-color: #0C0D16ff;
+    padding-top: 56px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .lighter-section {
@@ -116,12 +120,7 @@ body {
     justify-content: center;
     align-items: center;
     height:65px;
-    
-    
 }
-
-
-
 
 .bigbutton {
     height:65px;
@@ -153,10 +152,8 @@ body {
   background-size: contain;
   min-height:250px;
   min-width:250px;
-  
-  
-  
 }
+
 .my-containerpic2 {
   background-image: url("/assets/img/pic2.jpg");
   background-position:center;
@@ -164,9 +161,8 @@ body {
   background-size: cover;
   min-height:250px;
   min-width:250px;
- 
-  
 }
+
 .my-containercspic1 {
   background-image: url("/assets/img/csgo1.jpg");
   background-position: top;
@@ -174,7 +170,7 @@ body {
   background-size: cover;
   min-height:250px;
   min-width:250px;
- 
+
 }
 
 .iframe {
@@ -192,4 +188,7 @@ body {
     background-position: center;
     background-size: cover;
     max-height:200px;
+
+.image {
+    object-fit: cover;
 }
