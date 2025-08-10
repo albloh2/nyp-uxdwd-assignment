@@ -24,7 +24,7 @@
                         <a class="nav-link" href="about.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Games</a>
+                        <a class="nav-link active" aria-current="page" href="games.html">Games</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="events.html">Events</a>
@@ -62,7 +62,7 @@
                     <p class="mb-2">
                         <b>Training:</b> Tuesdays & Thursdays, 4:00 PM - 6:00 PM
                     </p>
-                    <button class="btn btn-primary text-white py-2 px-5 shadow-lg mt-3">
+                    <button class="btn btn-primary text-white py-2 px-5 shadow-lg mt-3" onclick="document.location.href='valorant.html'">
                         Learn More
                     </button>
                 </div>
@@ -81,7 +81,7 @@
                     <p class="mb-2">
                         <b>Training:</b> Mondays & Wednesdays, 4:00 PM - 5:30 PM
                     </p>
-                    <button class="btn btn-primary text-white py-2 px-5 shadow-lg mt-3">
+                    <button class="btn btn-primary text-white py-2 px-5 shadow-lg mt-3" onclick="document.location.href='counterstrike2.html'">
                         Learn More
                     </button>
                 </div>
@@ -156,7 +156,7 @@
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script>
             AOS.init();
-            // js hack to make everything the same size cuz lazy
+            
             function resizeimage () {
                 let img_height = Math.max(document.getElementById("img1").height, document.getElementById("img2").height, document.getElementById("img3").height)
                 document.getElementById("img1").height = img_height;
