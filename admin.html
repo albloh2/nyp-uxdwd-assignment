@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .admin-panel-card {
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow admin-panel-card">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">Admin Panel - NYP E-Sports CCA</h4>
+                    </div>
+                    <div class="card-body">
+                        <!-- Navigation Tabs -->
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="applications-tab" data-bs-toggle="tab" data-bs-target="#applications" type="button" role="tab" aria-controls="applications" aria-selected="true">Applications</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Messages</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content" id="myTabContent">
+                            <!-- Applications Tab Pane -->
+                            <div class="tab-pane fade show active" id="applications" role="tabpanel" aria-labelledby="applications-tab">
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-hover table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Admin No</th>
+                                                <th>Email</th>
+                                                <th>Phone</th>
+                                                <th>Game</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="applications-table-body">
+                                            <!-- Data will be populated here by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Messages Tab Pane -->
+                            <div class="tab-pane fade" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                                <div class="table-responsive mt-3">
+                                    <table class="table table-hover table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Email</th>
+                                                <th>Message</th>
+                                                <th>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="messages-table-body">
+                                            <!-- Data will be populated here by JavaScript -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Settings Tab Pane -->
+                            <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="settings-tab">
+                                <div class="mb-4 p-3 bg-light rounded mt-3">
+                                    <h5 class="mb-2">Data Source Settings</h5>
+                                    <div class="row g-2">
+                                        <div class="col-md-4">
+                                            <label for="dataSourceSelect" class="form-label">Choose Data Source</label>
+                                            <select class="form-select" id="dataSourceSelect">
+                                                <option value="localstorage">Local Storage</option>
+                                                <option value="backend">Backend URL</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="backendUrlInput" class="form-label">Backend URL</label>
+                                            <input type="url" class="form-control" id="backendUrlInput" placeholder="e.g., http://127.0.0.1:5000">
+                                        </div>
+                                        <div class="col-md-2 d-flex align-items-end">
+                                            <button class="btn btn-primary w-100" id="saveDataSourceBtn">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const BACKEND_URL = localStorage.getItem('BACKEND_URL');
+
+            const loadDataFromBackend = async () => {
+                try {
+                    const applicationsResponse = await fetch(`${BACKEND_URL}/applications`);
+                    const applications = await applicationsResponse.json();
+
+                    const messagesResponse = await fetch(`${BACKEND_URL}/messages`);
+                    const messages = await messagesResponse.json();
+
+                    return { applications, messages };
+                } catch (error) {
+                    console.error('Failed to load data from backend:', error);
+                    return { applications: [], messages: [] };
+                }
+            };
+
+            const loadDataFromLocalStorage = () => {
+                const applications = JSON.parse(localStorage.getItem('applications')) || [];
+                const messages = JSON.parse(localStorage.getItem('messages')) || [];
+                return { applications, messages };
+            };
+            
+            const saveDataToLocalStorage = (key, data) => {
+                localStorage.setItem(key, JSON.stringify(data));
+            };
+
+            const renderApplications = (applications) => {
+                const tbody = document.getElementById('applications-table-body');
+                tbody.innerHTML = ''; // Clear existing content
+                applications.forEach((app, index) => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${app.name}</td>
+                        <td>${app.admin_no}</td>
+                        <td><a href="mailto:${app.email}">${app.email}</a></td>
+                        <td><a href="tel:${app.phone}">${app.phone}</a></td>
+                        <td>${app.game}</td>
+                        <td><button class="btn btn-danger btn-sm" onclick="deleteApplication(${index})">Delete</button></td>
+                    `;
+                });
+            };
+
+            const renderMessages = (messages) => {
+                const tbody = document.getElementById('messages-table-body');
+                tbody.innerHTML = ''; // Clear existing content
+                messages.forEach((msg, index) => {
+                    const row = tbody.insertRow();
+                    row.innerHTML = `
+                        <td>${msg.name}</td>
+                        <td><a href="mailto:${msg.email}">${msg.email}</a></td>
+                        <td>${msg.message}</td>
+                        <td><button class="btn btn-danger btn-sm" onclick="deleteMessage(${index})">Delete</button></td>
+                    `;
+                });
+            };
+            
+            // Expose functions to the global scope so they can be called from onclick attributes.
+            window.deleteApplication = async (index) => {
+                if (BACKEND_URL) {
+                    try {
+                        await fetch(`${BACKEND_URL}/applications/${index}`, {
+                            method: 'DELETE',
+                        });
+                        const { applications } = await loadDataFromBackend();
+                        renderApplications(applications);
+                    } catch (error) {
+                        console.error('Failed to delete application from backend:', error);
+                    }
+                } else {
+                    let { applications } = loadDataFromLocalStorage();
+                    applications.splice(index, 1);
+                    saveDataToLocalStorage('applications', applications);
+                    renderApplications(applications);
+                }
+            };
+
+            window.deleteMessage = async (index) => {
+                if (BACKEND_URL) {
+                    try {
+                        await fetch(`${BACKEND_URL}/messages/${index}`, {
+                            method: 'DELETE',
+                        });
+                        const { messages } = await loadDataFromBackend();
+                        renderMessages(messages);
+                    } catch (error) {
+                        console.error('Failed to delete message from backend:', error);
+                    }
+                } else {
+                    let { messages } = loadDataFromLocalStorage();
+                    messages.splice(index, 1);
+                    saveDataToLocalStorage('messages', messages);
+                    renderMessages(messages);
+                }
+            };
+
+            // Set up UI for data source selection and save functionality
+            const dataSourceSelect = document.getElementById('dataSourceSelect');
+            const backendUrlInput = document.getElementById('backendUrlInput');
+            const saveDataSourceBtn = document.getElementById('saveDataSourceBtn');
+
+            // Initialize UI based on current local storage setting
+            if (BACKEND_URL) {
+                dataSourceSelect.value = 'backend';
+                backendUrlInput.value = BACKEND_URL;
+                backendUrlInput.style.display = 'block';
+            } else {
+                dataSourceSelect.value = 'localstorage';
+                backendUrlInput.value = '';
+                backendUrlInput.style.display = 'none';
+            }
+
+            // Toggle URL input visibility based on dropdown selection
+            dataSourceSelect.addEventListener('change', (event) => {
+                if (event.target.value === 'backend') {
+                    backendUrlInput.style.display = 'block';
+                } else {
+                    backendUrlInput.style.display = 'none';
+                }
+            });
+
+            // Save the chosen data source and reload
+            saveDataSourceBtn.addEventListener('click', () => {
+                const selectedSource = dataSourceSelect.value;
+                if (selectedSource === 'backend') {
+                    const url = backendUrlInput.value;
+                    if (url) {
+                        localStorage.setItem('BACKEND_URL', url);
+                    } else {
+                        // Use a custom message box instead of alert
+                        console.error('Backend URL is required.');
+                        return;
+                    }
+                } else {
+                    localStorage.removeItem('BACKEND_URL');
+                }
+                location.reload();
+            });
+
+            // Initial rendering of the tables.
+            if (BACKEND_URL) {
+                console.log("Using backend for data persistence.");
+                loadDataFromBackend().then(({ applications, messages }) => {
+                    renderApplications(applications);
+                    renderMessages(messages);
+                });
+            } else {
+                console.log("Using local storage for data persistence.");
+                const { applications, messages } = loadDataFromLocalStorage();
+                renderApplications(applications);
+                renderMessages(messages);
+            }
+        });
+    </script>
+</body>
+</html>
