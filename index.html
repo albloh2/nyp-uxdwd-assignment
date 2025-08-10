@@ -39,10 +39,12 @@
             </div>
         </nav>
         <div class="container-fluid full-screen-container border-0 shadow-lg d-flex flex-column align-items-center justify-content-center centered py-5 px-10 hex_backing text-white">
-            <img src="assets/svg/icon.svg" width="200" col>
-            <h1>Ignite Your Passion for <span class="text-nowrap">E-Sports</span></h1>
-            <p>Join a community of dedicated gamers, compete in tournaments, and represent NYP in the world of competitive gaming.</p>
-            <button class="btn btn-primary mt-3" onclick="document.location.href='about.html'">Learn More</button>
+            <div >
+                <img src="assets/svg/icon.svg" width="200" col>
+                <h1>Ignite Your Passion for <span class="text-nowrap">E-Sports</span></h1>
+                <p>Join a community of dedicated gamers, compete in tournaments, and represent NYP in the world of competitive gaming.</p>
+                <button class="btn btn-primary mt-3" onclick="document.location.href='about.html'">Learn More</button>
+            </div>
         </div>
         <div class="container-fluid border-0 shadow-lg d-flex flex-column align-items-center justify-content-center centered py-5 px-10 text-white lighter-section">
             <h1>Our Mission</h1>
@@ -101,9 +103,10 @@
         <p><span>&copy; 2025 Albloh2 Technologies. All rights reserved.</span> | <a href="credits.html" class="text-white">Credits</p>   
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-            <script>
-            AOS.init({duration: 1000});
-            window.history.scrollRestoration = 'manual';
-        </script>    
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({duration: 1000});
+        window.history.scrollRestoration = 'manual';
+    </script>    
 </body>
 </html>
