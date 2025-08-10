@@ -188,7 +188,7 @@ body {
     background-position: center;
     background-size: cover;
     max-height:200px;
-
+}
 .image {
     object-fit: cover;
 }
