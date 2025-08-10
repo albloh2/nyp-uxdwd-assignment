@@ -43,6 +43,13 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/img/hex_backing.jpg');
 }
 
+.valobanner{
+    background-image: url('/assets/img/VALORANT_logo.jpg');
+    background-position: center;
+    background-size: cover;
+    max-height:200px;
+}
+
 .translucent {
     background-color: rgb(12, 13, 22, 0.9);
     backdrop-filter: blur(5px); 
@@ -123,6 +130,65 @@ body {
     width:150px;
 }
 
+.iframevideocontainer {
+  position: relative;
+  width: 100%; 
+  padding-top:100%;
+  align-items:left;
+}
+
+.iframevideocontainer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.my-containerpic1 {
+  background-image: url("/assets/img/pic1.jpg");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  min-height:250px;
+  min-width:250px;
+}
+
+.my-containerpic2 {
+  background-image: url("/assets/img/pic2.jpg");
+  background-position:center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height:250px;
+  min-width:250px;
+}
+
+.my-containercspic1 {
+  background-image: url("/assets/img/csgo1.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height:250px;
+  min-width:250px;
+
+}
+
+.iframe {
+    position:relative;
+}
+
+.mlbbbanner{
+    background-image: url("/assets/img/mlbb.png");
+    background-position: center;
+    background-size: cover;
+    max-height:200px;
+}
+.csgobanner {
+  background-image: url("/assets/img/csgobanner.webp");
+    background-position: center;
+    background-size: cover;
+    max-height:200px;
+}
 .image {
     object-fit: cover;
 }
