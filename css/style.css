@@ -110,8 +110,8 @@ body {
 
 .iframevideocontainer {
   position: relative;
-  width: 50%; 
-  padding-top: 56.25%; 
+  width: 100%; 
+  padding-top:100%;
   align-items:left;
 }
 
@@ -125,21 +125,33 @@ body {
 
 .my-containerpic1 {
   background-image: url("/assets/img/pic1.jpg");
-  background-position: center center;
+  background-position:center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   min-height:250px;
   min-width:250px;
-  background-size:contain;
+  
+  
+  
 }
 .my-containerpic2 {
   background-image: url("/assets/img/pic2.jpg");
-  background-position: center center;
+  background-position:center;
   background-repeat: no-repeat;
   background-size: cover;
   min-height:250px;
   min-width:250px;
-  background-size:contain;
+ 
+  
+}
+.my-containercspic1 {
+  background-image: url("/assets/img/csgo1.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height:250px;
+  min-width:250px;
+ 
 }
 
 .iframe {
@@ -147,7 +159,13 @@ body {
 }
 
 .mlbbbanner{
-    background-image: url("/assets/img/mlbb.jpg");
+    background-image: url("/assets/img/mlbb.png");
+    background-position: center;
+    background-size: cover;
+    max-height:200px;
+}
+.csgobanner {
+  background-image: url("/assets/img/csgobanner.webp");
     background-position: center;
     background-size: cover;
     max-height:200px;
