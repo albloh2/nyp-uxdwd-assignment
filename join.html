@@ -106,23 +106,29 @@
             <div class="container border-0 align-left text-white">
                 <div class="form-group my-2">
                     <label for="fullname">Full name</label>
-                    <input type="text" class="form-control" id="fullname" aria-describedby="fullnamehelp" placeholder="Your Name">
+                    <input type="text" class="form-control bg-dark text-white" id="fullname" aria-describedby="fullnamehelp" placeholder="Your Name">
                 </div>
                 <div class="form-group my-2">
                     <label for="admin_no">NYP Admission Number</label>
-                    <input type="text" class="form-control" id="admin_no" aria-describedby="admin_nohelp" placeholder="Your NYP Admin Number">
+                    <input type="text" class="form-control bg-dark text-white" id="admin_no" aria-describedby="admin_nohelp" placeholder="Your NYP Admin Number">
+                </div>
+                <div class="form-group my-2">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control bg-dark text-white" id="email" aria-describedby="admin_nohelp" placeholder="Your NYP Admin Number">
                 </div>
                 <div class="form-group my-2">
                     <label for="phone">Phone Number</label>
-                    <input type="number" class="form-control" id="phone" aria-describedby="phonehelp" placeholder="Your Phone Number">
+                    <input type="tel" class="form-control bg-dark text-white" id="phone" aria-describedby="phonehelp" placeholder="Your Phone Number">
                 </div>
                 <div class="form-group my-2">
                     <label for="game">Preferred Game</label>
-                    <select class="form-select" aria-label="preferred game" id="game">
+                    <select class="form-select bg-dark text-white" aria-label="preferred game" id="game">
                         <option selected value="1">Valorant</option>
                         <option value="2">Counter-Strike 2</option>
                         <option value="3">TETR.IO</option>
-                        <option value="4">Mobile Legends: Bang Bang</option>
+                        <option value="4">Mobile Legends: Bang Bang (Coming Soon)</option>
+                        <option value="5">EA Sports FC 2025 (Coming Soon)</option>
+                        <option value="6">Rocket League (Coming Soon)</option>
                     </select>
                 </div>
             </div>
@@ -143,5 +149,6 @@
             AOS.init({duration: 1000});
             window.history.scrollRestoration = 'manual';
         </script>
+        <script src="js/join_us.js"></script>
     </body>
 </html>
